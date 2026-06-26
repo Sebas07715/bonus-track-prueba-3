@@ -21,3 +21,8 @@ Corrección/Mejora: Quité las explicaciones en texto que generó la IA.
 
 ---------------------------------------------------------------
 
+Etapa 4: Estado y filtro seguro.
+Prompt: "Estoy haciendo un buscador en React. Tengo un input de texto y quiero que sea un componente controlado usando useState. Además, por seguridad, necesito limitar que el usuario no pueda escribir más de 30 caracteres en el input y limpiar los espacios en blanco de los extremos antes de filtrar un arreglo de objetos por el nombre."
+Utilidad: Parcialmente útil. Me sirvió para estructurar la validación de longitud máxima dentro de la función del cambio de estado.
+Corrección/Mejora: Ninguna en esta etapa 4.
+

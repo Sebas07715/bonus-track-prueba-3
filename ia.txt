@@ -12,5 +12,12 @@ Prompt: "Tengo un componente en React llamado MascotaCard que recibe por props: 
 Utilidad: Útil. Me dio la sintaxis exacta de PropTypes para arreglos de strings y booleanos de manera directa.
 Corrección: Quité los comentarios explicativos que generó la IA en el código.
 
+---------------------------------------------------------------
 
+Etapa 3: Listado de Mascotas
+Prompt: "Tengo un componente llamado ListaMascotas que recibe un array de objetos por props. Me das el codigo de cómo recorrer ese array usando .map para renderizar el componente MascotaCard por cada uno y cómo le paso el id del objeto a la propiedad key sin usar el índice del arreglo"
+Utilidad: Útil. Me dio la estructura limpia del mapeo del arreglo y cómo enlazar las propiedades directamente.
+Corrección/Mejora: Quité las explicaciones en texto que generó la IA.
+
+---------------------------------------------------------------
 

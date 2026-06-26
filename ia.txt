@@ -1,0 +1,11 @@
+---------------------------------------------------------------
+
+Etapa 1 + A:
+En la etapa que es la creación base del proyecto no se utilizo IA, en lo cual esta la Etapa A +
+Etapa 1, la identificación de los elementos de framework (más las dos preguntas contestadas) y la 
+base del proyecto creado con React y Vite en Visual Studio.
+
+---------------------------------------------------------------
+
+
+

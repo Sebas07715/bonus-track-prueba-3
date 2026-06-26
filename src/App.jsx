@@ -1,122 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from 'react';
+import { mascotas } from './data/mascotas';
+import ListaMascotas from './components/ListaMascotas';
+import FiltroEspecie from './components/FiltroEspecie';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [filtroEspecie, setFiltroEspecie] = useState('Todas');
+  const [busqueda, setBusqueda] = useState('');
+
+  const handleBusquedaChange = (e) => {
+    const valorEntrada = e.target.value;
+    if (valorEntrada.length <= 30) {
+      setBusqueda(valorEntrada);
+    }
+  };
+
+  const mascotasFiltradas = mascotas.filter((mascota) => {
+    const coincideEspecie = filtroEspecie === 'Todas' || mascota.especie === filtroEspecie;
+    const busquedaLimpia = busqueda.trim().toLowerCase();
+    const coincideNombre = mascota.nombre.toLowerCase().includes(busquedaLimpia);
+    return coincideEspecie && coincideNombre;
+  });
+
+  const totalUrgentes = mascotasFiltradas.filter(m => m.adopcionUrgente).length;
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div style={{ fontFamily: 'sans-serif', maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+      <header>
+        <h1>🐾 Directorio Digital AdoptaPet</h1>
+      </header>
+
+      <section style={{ backgroundColor: '#f5f5f5', padding: '15px', borderRadius: '8px' }}>
+        <input
+          type="text"
+          value={busqueda}
+          onChange={handleBusquedaChange}
+          placeholder="Buscar mascota por nombre..."
+          style={{ padding: '8px', width: '100%', maxWidth: '300px', marginBottom: '10px' }}
+        />
+
+        <FiltroEspecie filtroActual={filtroEspecie} setFiltroActual={setFiltroEspecie} />
+        
+        <div style={{ marginTop: '10px', fontWeight: 'bold' }}>
+          Mascotas urgentes: {totalUrgentes}
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+      </section>
+
+      <main>
+        {mascotasFiltradas.length > 0 ? (
+          <ListaMascotas mascotasFiltradas={mascotasFiltradas} />
+        ) : (
+          <p style={{ color: 'red', fontWeight: 'bold', marginTop: '20px' }}>
+            No hay mascotas que coincidan
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        )}
+      </main>
+    </div>
+  );
 }
-
-export default App

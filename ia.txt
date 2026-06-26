@@ -26,3 +26,11 @@ Prompt: "Estoy haciendo un buscador en React. Tengo un input de texto y quiero q
 Utilidad: Parcialmente útil. Me sirvió para estructurar la validación de longitud máxima dentro de la función del cambio de estado.
 Corrección/Mejora: Ninguna en esta etapa 4.
 
+---------------------------------------------------------------
+
+Etapa 5: Destacar las adopciones Urgentes DESTACAR LAS ADOPCIONES URGENTES
+Prompt: "Tengo un arreglo de objetos filtrados en react, cada objeto tiene una propiedad booleana llamada adopcionUrgente, cuál es la forma más limpia de hacer un contador que sume en tiempo real cuántos objetos tienen esa propiedad en true para mostrarlo en pantalla, si generas este apartado de adopciónUrgente viendo por ultimo, la revisión de si presenta algún error de sintaxis o cualquier error al ejecutarse el archivo app.jsx.
+Utilidad: útil, me dio una línea rápida usando .filter().length.
+Corrección/Mejora: Ninguna.
+
+---------------------------------------------------------------

@@ -35,7 +35,7 @@ export default function MascotaCard({ nombre, raza, edad, especie, descripcion, 
     <div style={cardStyle}>
       {adopcionUrgente && <span style={urgentBadgeStyle}>🚨 URGENTE</span>}
       
-      <h3 style={{ margin: '0 0 4px 0' }}>{nombre}</h3> [cite: 96]
+      <h3 style={{ margin: '0 0 4px 0' }}>{nombre}</h3>
       <p style={{ margin: 0, fontSize: '0.9rem' }}><strong>Raza:</strong> {raza}</p>
       <p style={{ margin: 0, fontSize: '0.9rem' }}><strong>Edad:</strong> {edad} años</p>
       <p style={{ margin: 0, fontSize: '0.9rem' }}><strong>Especie:</strong> {especie}</p>

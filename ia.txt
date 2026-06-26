@@ -7,5 +7,10 @@ base del proyecto creado con React y Vite en Visual Studio.
 
 ---------------------------------------------------------------
 
+Etapa 2: Componente de MascotaCard
+Prompt: "Tengo un componente en React llamado MascotaCard que recibe por props: nombre, raza, edad, especie, descripcion, caracteristicas y adopcionUrgente. ¿Cómo dejo declaradas las PropTypes para cada uno de forma estricta y cómo le paso valores por defecto a la descripción y al array de características por si vienen vacíos?"
+Utilidad: Útil. Me dio la sintaxis exacta de PropTypes para arreglos de strings y booleanos de manera directa.
+Corrección: Quité los comentarios explicativos que generó la IA en el código.
+
 
 
